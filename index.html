@@ -23,7 +23,6 @@
     }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -54,14 +53,12 @@
       z-index: 998;
       overflow: hidden;
     }
-
     .cp {
       position: absolute;
       top: -12px;
       animation: fall linear infinite;
       opacity: 0;
     }
-
     @keyframes fall {
       0%   { transform: translateY(0) rotate(0deg);    opacity: 0.8; }
       90%  { opacity: 0.6; }
@@ -79,7 +76,6 @@
       padding: 3rem 2rem 6rem;
       position: relative;
     }
-
     .hero-glow {
       position: absolute;
       width: 700px; height: 700px;
@@ -88,7 +84,6 @@
       transform: translate(-50%, -50%);
       pointer-events: none;
     }
-
     .twenty-one {
       position: absolute;
       font-family: 'Cormorant Garamond', serif;
@@ -102,7 +97,6 @@
       pointer-events: none;
       letter-spacing: -0.05em;
     }
-
     .badge {
       display: inline-block;
       border: 1px solid var(--gold);
@@ -114,7 +108,6 @@
       margin-bottom: 2.5rem;
       animation: fadeUp 1s ease both;
     }
-
     .hero-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(5.5rem, 16vw, 14rem);
@@ -126,7 +119,6 @@
       animation: fadeUp 1.1s ease both;
       position: relative;
     }
-
     .hero-sub {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1rem, 2.5vw, 1.5rem);
@@ -136,7 +128,6 @@
       letter-spacing: 0.08em;
       animation: fadeUp 1.3s ease both;
     }
-
     .scroll-cue {
       position: absolute;
       bottom: 2.5rem;
@@ -146,9 +137,8 @@
       color: var(--text-muted);
       animation: bob 2.5s ease-in-out infinite;
     }
-
-    @keyframes bob   { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
-    @keyframes fadeUp{ from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes bob    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(7px)} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
 
     /* ── Shared section ── */
     .wrap {
@@ -156,7 +146,6 @@
       margin: 0 auto;
       padding: 5rem 2rem;
     }
-
     .eyebrow {
       font-size: 0.62rem;
       letter-spacing: 0.45em;
@@ -165,7 +154,6 @@
       text-align: center;
       margin-bottom: 0.9rem;
     }
-
     .sec-title {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 5vw, 3.8rem);
@@ -175,7 +163,6 @@
       margin-bottom: 3rem;
       line-height: 1.1;
     }
-
     .ornament {
       display: flex;
       align-items: center;
@@ -183,17 +170,14 @@
       margin: 0 auto 4rem;
       max-width: 300px;
     }
-
     .ornament-line {
       flex: 1;
       height: 1px;
       background: linear-gradient(to right, transparent, var(--gold));
     }
-
     .ornament-line.r {
       background: linear-gradient(to left, transparent, var(--gold));
     }
-
     .ornament-gem { color: var(--gold); font-size: 0.7rem; }
 
     /* ── Message ── */
@@ -204,20 +188,17 @@
       text-align: center;
       position: relative;
     }
-
     .message-card::before,
     .message-card::after {
-      content: '"';
+      content: '\201C';
       font-family: 'Cormorant Garamond', serif;
       font-size: 8rem;
       color: rgba(201,149,106,0.08);
       position: absolute;
       line-height: 1;
     }
-
     .message-card::before { top: -1rem; left: 1.5rem; }
-    .message-card::after  { content: '"'; bottom: -4rem; right: 1.5rem; }
-
+    .message-card::after  { content: '\201D'; bottom: -4rem; right: 1.5rem; }
     .msg-main {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.1rem, 2.5vw, 1.45rem);
@@ -229,7 +210,6 @@
       position: relative;
       z-index: 1;
     }
-
     .msg-extra {
       font-family: 'Jost', sans-serif;
       font-size: 0.95rem;
@@ -241,7 +221,6 @@
       position: relative;
       z-index: 1;
     }
-
     .msg-sig {
       margin-top: 2.2rem;
       font-size: 0.7rem;
@@ -260,7 +239,6 @@
       margin: 0 auto;
       background: var(--dark-card);
     }
-
     .music-wrap iframe {
       display: block;
       width: 100%;
@@ -270,10 +248,8 @@
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto;
       gap: 0.75rem;
     }
-
     .photo-cell {
       background: var(--dark-card);
       border: 1px dashed rgba(201,149,106,0.25);
@@ -289,46 +265,34 @@
       overflow: hidden;
       transition: border-color 0.3s;
       aspect-ratio: 1 / 1;
+      position: relative;
     }
-
     .photo-cell.tall { grid-row: span 2; aspect-ratio: unset; }
-
     .photo-cell:hover { border-color: var(--gold); }
 
+    /* ── KEY FIX: image fills cell, hides placeholder ── */
     .photo-cell img {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
-
+    /* Hide broken images gracefully */
+    .photo-cell img[src=""],
+    .photo-cell img:not([src]) {
+      display: none;
+    }
     .photo-cell .ph-icon {
       font-size: 1.8rem;
       color: rgba(201,149,106,0.4);
       line-height: 1;
     }
-
-    /* ── How-to guide (for owner) ── */
-    .how-to {
-      background: rgba(201,149,106,0.05);
-      border: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
-      line-height: 1.8;
+    .photo-cell .ph-label {
       color: var(--text-muted);
-    }
-
-    .how-to strong {
-      color: var(--gold);
-      font-weight: 400;
-    }
-
-    .how-to code {
-      font-family: monospace;
-      background: rgba(255,255,255,0.05);
-      padding: 0.1em 0.4em;
-      font-size: 0.75rem;
-      color: var(--champagne);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
     }
 
     /* ── Closing ── */
@@ -336,7 +300,6 @@
       text-align: center;
       padding: 6rem 2rem 9rem;
     }
-
     .closing-heart {
       display: block;
       font-size: 2.5rem;
@@ -344,7 +307,6 @@
       animation: pulse 2.5s ease-in-out infinite;
       color: var(--pink);
     }
-
     .closing-words {
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1.6rem, 4.5vw, 3rem);
@@ -353,7 +315,6 @@
       color: var(--champagne);
       line-height: 1.4;
     }
-
     .closing-from {
       margin-top: 1.8rem;
       font-size: 0.7rem;
@@ -361,10 +322,9 @@
       text-transform: uppercase;
       color: var(--gold);
     }
-
     @keyframes pulse {
-      0%,100%{ transform: scale(1);   }
-      50%    { transform: scale(1.12);}
+      0%,100%{ transform: scale(1);    }
+      50%    { transform: scale(1.12); }
     }
 
     /* ── Responsive ── */
@@ -386,23 +346,10 @@
   <div class="hero">
     <div class="hero-glow"></div>
     <span class="twenty-one">21</span>
-
     <span class="badge">✦ &nbsp; 21st Birthday &nbsp; ✦</span>
-
     <h1 class="hero-name">Lindiwe</h1>
     <p class="hero-sub">Today, the world celebrates one of its finest souls</p>
-
     <span class="scroll-cue">↓ &nbsp; scroll &nbsp; ↓</span>
-  </div>
-   <div class="music-wrap">
-      <iframe
-        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-        frameborder="0"
-        height="175"
-        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-        src="https://embed.music.apple.com/bw/album/usebenzile-acoustic/1857608444?i=1857608448">
-      </iframe>
-    </div>
   </div>
 
   <!-- ══════════════════ MESSAGE ══════════════════ -->
@@ -435,7 +382,16 @@
       <span class="ornament-line r"></span>
     </div>
 
-   
+    <div class="music-wrap">
+      <iframe
+        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+        frameborder="0"
+        height="175"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+        src="https://embed.music.apple.com/bw/album/usebenzile-acoustic/1857608444?i=1857608448">
+      </iframe>
+    </div>
+  </div>
 
   <!-- ══════════════════ PHOTOS ══════════════════ -->
   <div class="wrap" style="padding-top: 0;">
@@ -451,10 +407,13 @@
     <!--
       ╔══════════════════════════════════════════════════════════════╗
       ║  HOW TO ADD YOUR PHOTOS                                      ║
-      ║  1. Upload your photos to the same GitHub repo folder        ║
-      ║  2. In each .photo-cell below, replace the placeholder with: ║
-      ║     <img src="your-photo-name.jpg" alt="caption">            ║
-      ║  3. Remove the ph-icon span and the label span               ║
+      ║  Make sure your repo looks like this:                        ║
+      ║    BestestDay/                                               ║
+      ║      index.html   ← this file                               ║
+      ║      images/                                                 ║
+      ║        img1.jpg                                              ║
+      ║        img.jpeg                                              ║
+      ║        img3.jpg  … etc.                                      ║
       ╚══════════════════════════════════════════════════════════════╝
     -->
 
@@ -462,47 +421,54 @@
 
       <!-- PHOTO 1 -->
       <div class="photo-cell">
-        <img src="../images/img1.jpg" alt="Caption here">
+        <img src="images/img1.jpg" alt="Caption here"
+             onerror="this.style.display='none'">
         <span class="ph-icon">◈</span>
-        <span>Add photo</span>
+        <span class="ph-label">Add photo</span>
       </div>
 
       <!-- PHOTO 2 — tall (spans 2 rows, great for portrait shots) -->
       <div class="photo-cell tall">
-        <img src="../images/img.jpeg" alt="Birthday girl">
+        <img src="images/img.jpeg" alt="Birthday girl"
+             onerror="this.style.display='none'">
         <span class="ph-icon">◈</span>
-        <span>Add portrait</span>
+        <span class="ph-label">Add portrait</span>
       </div>
 
       <!-- PHOTO 3 -->
       <div class="photo-cell">
-        <img src="../images/img3.jpg" alt="Caption here">
+        <img src="images/img3.jpg" alt="Caption here"
+             onerror="this.style.display='none'">
         <span class="ph-icon">◈</span>
-        <span>Add photo</span>
+        <span class="ph-label">Add photo</span>
       </div>
 
       <!-- PHOTO 4 -->
       <div class="photo-cell">
-        <img src="../images/img6.jpg" alt="Caption here">
+        <img src="images/img6.jpg" alt="Caption here"
+             onerror="this.style.display='none'">
         <span class="ph-icon">◈</span>
-        <span>Add photo</span>
+        <span class="ph-label">Add photo</span>
       </div>
 
       <!-- PHOTO 5 -->
       <div class="photo-cell">
-       <img src="../images/img7.JPG" alt="Caption here">
+        <img src="images/img7.JPG" alt="Caption here"
+             onerror="this.style.display='none'">
         <span class="ph-icon">◈</span>
-        <span>Add photo</span>
+        <span class="ph-label">Add photo</span>
       </div>
 
       <!-- PHOTO 6 -->
       <div class="photo-cell">
-        <img src="../images/img8.jpg" alt="Caption here">
+        <img src="images/img8.jpg" alt="Caption here"
+             onerror="this.style.display='none'">
         <span class="ph-icon">◈</span>
-        <span>Add photo</span>
+        <span class="ph-label">Add photo</span>
       </div>
-    </div>
 
+    </div>
+  </div>
 
   <!-- ══════════════════ CLOSING ══════════════════ -->
   <div class="closing">
@@ -523,14 +489,12 @@
       function spawn() {
         const el = document.createElement('div');
         el.className = 'cp';
-
         const size     = Math.random() * 9 + 4;
         const color    = palette[Math.floor(Math.random() * palette.length)];
         const left     = Math.random() * 100;
         const duration = Math.random() * 9 + 7;
         const delay    = Math.random() * 4;
         const round    = Math.random() > 0.45;
-
         el.style.cssText = `
           left:${left}%;
           width:${size}px;
@@ -540,18 +504,13 @@
           animation-duration:${duration}s;
           animation-delay:${delay}s;
         `;
-
         container.appendChild(el);
         setTimeout(() => el.remove(), (duration + delay) * 1000);
       }
 
-      // Burst on load
       for (let i = 0; i < 80; i++) setTimeout(spawn, i * 60);
-
-      // Gentle ongoing shower
       setInterval(spawn, 350);
 
-      // Fade-in observer for sections
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
@@ -569,5 +528,6 @@
       });
     })();
   </script>
+
 </body>
 </html>
