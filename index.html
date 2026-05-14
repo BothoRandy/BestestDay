@@ -331,39 +331,6 @@
       color: var(--champagne);
     }
 
-    /* ── Videos ── */
-    .video-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1rem;
-    }
-
-    .video-cell {
-      aspect-ratio: 16 / 9;
-      background: var(--dark-card);
-      border: 1px dashed rgba(201,149,106,0.25);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      color: var(--text-muted);
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: border-color 0.3s;
-    }
-
-    .video-cell:hover { border-color: var(--gold); }
-    .video-cell .play-icon { font-size: 2.2rem; color: rgba(201,149,106,0.5); }
-
-    .video-cell iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
     /* ── Closing ── */
     .closing {
       text-align: center;
@@ -497,14 +464,14 @@
 
       <!-- PHOTO 1 -->
       <div class="photo-cell">
-        <img src="../images/img3.jpeg" alt="Us at the park">
+        <!-- <img src="photo1.jpg" alt="Us at the park"> -->
         <span class="ph-icon">◈</span>
         <span>Add photo</span>
       </div>
 
       <!-- PHOTO 2 — tall (spans 2 rows, great for portrait shots) -->
       <div class="photo-cell tall">
-        <!-- <img src="photo2.jpg" alt="Birthday girl"> -->
+        <<img src="../images/img3.jpeg" alt="Birthday girl">
         <span class="ph-icon">◈</span>
         <span>Add portrait</span>
       </div>
@@ -538,56 +505,6 @@
       </div>
     </div>
 
-    <div class="how-to">
-      <strong>✦ Adding photos:</strong> Upload your images to the repo, then replace each comment line like
-      <code>&lt;!-- &lt;img src="photo1.jpg"&gt; --&gt;</code> by removing the <code>&lt;!--</code> and <code>--&gt;</code>
-      around it and updating the filename. Delete the placeholder spans above it.
-    </div>
-  </div>
-
-  <!-- ══════════════════ VIDEOS ══════════════════ -->
-  <div class="wrap" style="padding-top: 0;">
-    <div class="ornament">
-      <span class="ornament-line"></span>
-      <span class="ornament-gem">◆</span>
-      <span class="ornament-line r"></span>
-    </div>
-
-    <p class="eyebrow">Moving Moments</p>
-    <h2 class="sec-title">Our Videos</h2>
-
-    <!--
-      ╔══════════════════════════════════════════════════════════════╗
-      ║  HOW TO ADD YOUTUBE VIDEOS                                   ║
-      ║  1. Open the YouTube video                                   ║
-      ║  2. Copy the ID from the URL: youtube.com/watch?v=VIDEO_ID   ║
-      ║  3. Uncomment the <iframe> lines below & paste your VIDEO_ID ║
-      ╚══════════════════════════════════════════════════════════════╝
-    -->
-
-    <div class="video-grid">
-
-      <!-- VIDEO 1: Uncomment & replace VIDEO_ID -->
-      <div class="video-cell">
-        <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-        <span class="play-icon">▶</span>
-        <span>Add YouTube video</span>
-      </div>
-
-      <!-- VIDEO 2: Uncomment & replace VIDEO_ID -->
-      <div class="video-cell">
-        <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-        <span class="play-icon">▶</span>
-        <span>Add YouTube video</span>
-      </div>
-
-    </div>
-
-    <div class="how-to" style="margin-top:1.5rem;">
-      <strong>✦ Adding videos:</strong> Get the ID from <code>youtube.com/watch?v=<strong>VIDEO_ID</strong></code>.
-      Uncomment the <code>&lt;iframe&gt;</code> inside each video cell and paste your ID. You can add more cells by duplicating a <code>.video-cell</code> block.
-    </div>
-  </div>
 
   <!-- ══════════════════ CLOSING ══════════════════ -->
   <div class="closing">
